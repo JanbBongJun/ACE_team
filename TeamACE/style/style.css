@@ -1,0 +1,73 @@
+* {
+    list-style: none;
+}
+
+h1 img:hover,
+nav ul li:hover {
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+main div ul img:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: 0.3s;
+}
+
+nav ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    margin-bottom: 50px;
+    text-align: center;
+    grid-gap: 10px;
+}
+
+nav ul li {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.searchBox {
+    text-align: right;
+    margin-right: 30px;
+    margin-bottom: 50px;
+}
+#searchInput {
+    width: 200px;
+    font-size: 20px;
+}
+
+main div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    place-items: center;
+    text-align: center;
+}
+
+main div ul {
+    padding-right: 50px;
+}
+
+.pagination {
+    text-align: center;
+}
+.pagination>button{
+    /* margin-top: 60px; */
+    background-color: white;
+    cursor:pointer;
+    font-size: 15px;
+}
+.btn{width: 30px;height: 30px;}
+.pre_next{
+    width: 65px;
+    height: 30px;
+    
+}
+/* .btn:focus,
+.btn:hover {
+    background-color: rgb(182, 182, 241);
+    cursor: pointer;
+} */
+

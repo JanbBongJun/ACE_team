@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../style/style.css" />
+        <title>Document</title>
+        <script type="module" src="../mainMoviePageSrc/main.js" defer></script>
+        <script type="module" src="../mainMoviePageSrc/makeDirectory.js" defer></script>
+        <script type = "module" src="../mainMoviePageSrc/pagination.js" defer></script>
+        <script src="../mainMoviePageSrc/outOfModule.js" defer></script>
+        
+
+        
+    </head>
+
+    <body>
+        <header>
+            <h1><img id="homeButton"src="../style/title.png" width="300px"/></h1>
+        </header>
+
+        <div class="searchBox">
+            <label for="searchInput"></label>
+            <input type="text" id="searchInput" placeholder="영화 제목 검색" />
+            <button id="searchBtn">
+                <img src="../style/search.png" width="20px" height="20px" />
+            </button>
+        </div>
+
+        <nav>
+            <ul>
+                <li onclick='alert("정렬")'>만화</li>
+                <li onclick='alert("정렬")'>스릴러</li>
+                <li onclick='alert("정렬")'>액션</li>
+                <li onclick='alert("정렬")'>로맨스</li>
+            
+            </ul>
+            
+        </nav>
+
+        <main>
+            <div id="movieCategory">영화 카테고리</div>
+        </main>
+
+        <footer>
+            <div class="pagination">
+                <button id="prev_btn" class="pre_next" value="previous" >pre</button>
+                <button id="1" class="btn" value="1">1</button>
+                <button id="2" class="btn" value="2">2</button>
+                <button id="3" class="btn" value="3">3</button>
+                <button id="4" class="btn" value="4">4</button>
+                <button id="5" class="btn" value="5">5</button>
+            
+                <button id="next" class="pre_next" value="next" >next</button>
+                
+            </div>
+        </footer>
+        
+    </body>
+</html>

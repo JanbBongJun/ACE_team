@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="detailMoviePage.css">
+
+    <script type="module" src="../detailMoviePageSrc/getMovieInfo.js" defer></script>
+    <script type="module" src="../detailMoviePageSrc/detailMoviePage.js" defer></script>
+    <script type="module" src="../detailMoviePageSrc/movieApi.js" defer></script>
+    <script src="../detailMoviePageSrc/outSideModule.js" defer></script>
+
+</head>
+
+<div class="topnav">
+    <img id="homeButton" class="homeButton" src="mainLogo.png">
+    <a class="logIn">로그인</a>
+    <a class="logOut">로그아웃</a>
+    <a class="joinMembership">회원가입</a>
+    <img id="searchIcon" src="searchIcon.png" style="float: right;">
+    <div class="logInModal"></div>
+    <div class="logOutModal"></div>
+    <div class="joinInMembershipModal"></div>
+    <input id="searchModal" class="searchModal"></input>
+
+</div>
+
+<div id="header"class="header">
+    <h1>영화 이미지</h1>
+
+</div>
+
+
+<div class="row">
+    <div class="leftcolumn">
+        <div class="card">
+            <div class="fakeimg" style="height:200px;">Image</div>
+            <h2>영화제목</h2>
+            <h5>기본정보</h5>
+            <p>내용</p>
+            <p>내용</p>
+        </div>
+        <div class="card">
+            <h2>출연제작</h2>
+            <h5>기본정보</h5>
+            <p>내용</p>
+            <p>내용</p>
+        </div>
+        <div class="card">
+            <h2>코멘트</h2>
+            <h5>기본정보</h5>
+            <p>내용</p>
+            <p>내용
+            </p>
+        </div>
+        <div class="card">
+            <h2>비슷한 작품</h2>
+            <div id='recommendMovie' class="recommendMovie">
+                <!-- <div id="recommendItem" class="recommendItem">
+                    <img src="">
+                    <p class="recommendMovieTitle"></p>
+                    <p class="recommendMovieGrade"></p>
+                    <p class="recommendMovie"></p>
+                </div> -->
+            </div>
+
+        </div>
+    </div>
+    <div class="rightcolumn">
+        <div class="card">
+            <h2>About Me</h2>
+            <div class="fakeimg" style="height:100px;">Image</div>
+            <p>내용</p>
+        </div>
+        <div class="card">
+            <h3>Popular Post</h3>
+            <div class="fakeimg">
+                <p>Image</p>
+            </div>
+            <div class="fakeimg">
+                <p>Image</p>
+            </div>
+            <div class="fakeimg">
+                <p>Image</p>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Follow Me</h3>
+            <p>내용</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <h2>Footer</h2>
+</div>
+
+</html>
