@@ -23,22 +23,28 @@ export async function loadPage(all_content_container,apiInfo,searchKeyword,genre
     let apiAddress;
     switch (apiInfo) {
         case 'top_rated':
+            console.log('top_rated')
             apiAddress = `https://api.themoviedb.org/3/movie/top_rated?language=ko&page=${page_index}`;
             break;
         case 'genre':
+            console.log('genre')
             apiAddress = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=ko&page=${page_index}&sort_by=popularity.desc&with_genres=${genreId}`;
             break;
         case 'keyword':
-            apiAddress = `https://api.themoviedb.org/3/search/movie?query=${searchKeyword}&include_adult=false&language=ko&page=1${page_index}`;
+            const searchQuery = encodeURIComponent(searchKeyword);
+            console.log("keyword"+searchQuery)
+            apiAddress = `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=ko&page=${page_index}`;
             break;
         case 'nowPlaying':
+            console.log('nowPlaying')
             apiAddress = `https://api.themoviedb.org/3/movie/now_playing?language=ko&page=${page_index}`;
             break;
     }
     await fetch(apiAddress, options)
         .then(response => response.json())
         .then(async response => {
-            // console.log(apiAddress)
+            console.log(apiAddress)
+            console.log(response)
             movie_db = await response.results;
             movie_db_length = movie_db.length;
             total_page = response.total_pages;

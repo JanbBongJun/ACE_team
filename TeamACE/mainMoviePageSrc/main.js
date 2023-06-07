@@ -12,7 +12,7 @@ export let apiInfo = "top_rated";
 export let searchKeyword = null;
 export let genre_ids = null;
 
-window.onload = () => {
+window.onload = async () => {
   all_content_container = document.getElementById("movieCategory");
 
   btnMake = Array.from(document.getElementsByClassName("btn"));
@@ -20,7 +20,7 @@ window.onload = () => {
     let whatClicked = window.opener.whatClicked;
     if (whatClicked === "goSearch") {
       searchInput.value = window.opener.searchText;
-      searchFunction();
+      await searchFunction();
       console.log(searchKeyword);
       btnSet(btnMake, 1);
       return;
@@ -29,20 +29,20 @@ window.onload = () => {
   btnSet(btnMake, 1);
 
   loadPage(all_content_container, "nowPlaying", null, null, now_page_num);
-  searchInput.addEventListener("keydown", (event) => {
+  searchInput.addEventListener("keydown", async (event) => {
     //엔터로 검색
     if (event.key === "Enter") {
-      searchFunction();
+      await searchFunction();
     }
   });
 };
 
-const searchFunction = () => {
+const searchFunction = async() => {
   const searchQuery = searchInput.value;
   if (searchQuery.trim() !== "") {
     searchKeyword = searchQuery;
     apiInfo = "keyword";
-    loadPage(all_content_container, apiInfo, searchQuery, null, 1);
+    await loadPage(all_content_container, apiInfo, searchQuery, null, 1);
   }
 };
 
@@ -64,17 +64,14 @@ document
   .getElementById("homeButton")
   .addEventListener("click", clickedHomeButton);
 
-
-
 const genreButton = Array.from(document.getElementsByClassName("genre"));
 
 genreButton.forEach((element) => {
-  let genreId=element.value;
+  let genreId = element.value;
   element.addEventListener("click", () => {
     genre_ids = genreId;
     apiInfo = "genre";
-    now_page_num = 1;
-    searchKeyword=null;
+    searchKeyword = null;
     loadPage(all_content_container, apiInfo, null, genre_ids, 1);
   });
 });
