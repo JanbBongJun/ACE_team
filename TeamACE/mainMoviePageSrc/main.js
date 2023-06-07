@@ -19,11 +19,10 @@ window.onload = () => {
   if (window.opener && window.opener.whatClicked) {
     let whatClicked = window.opener.whatClicked;
     if (whatClicked === "goSearch") {
-      searchInput.value =
-        window.opener.searchText;
+      searchInput.value = window.opener.searchText;
       searchFunction();
       console.log(searchKeyword);
-      btnSet(btnMake,1);
+      btnSet(btnMake, 1);
       return;
     }
   }
@@ -44,7 +43,6 @@ const searchFunction = () => {
     searchKeyword = searchQuery;
     apiInfo = "keyword";
     loadPage(all_content_container, apiInfo, searchQuery, null, 1);
-
   }
 };
 
@@ -65,7 +63,18 @@ document.getElementById("prev_btn").addEventListener("click", setUpPrevBtn);
 document
   .getElementById("homeButton")
   .addEventListener("click", clickedHomeButton);
-// 버튼을 누른 시점의 값을 받아오기
-// 1next 버튼을 누른다.
-// 2. 지금처럼 매개변수로 받아오는게 아닌
-// 모듈에 변수의 값을 전해주는 함수를 통해서 전달한다.
+
+
+
+const genreButton = Array.from(document.getElementsByClassName("genre"));
+
+genreButton.forEach((element) => {
+  let genreId=element.value;
+  element.addEventListener("click", () => {
+    genre_ids = genreId;
+    apiInfo = "genre";
+    now_page_num = 1;
+    searchKeyword=null;
+    loadPage(all_content_container, apiInfo, null, genre_ids, 1);
+  });
+});
