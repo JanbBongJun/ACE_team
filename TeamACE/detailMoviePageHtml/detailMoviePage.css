@@ -10,8 +10,11 @@
 
 .header {
     padding: 30px;
-    text-align: center;
-    background: white;
+    /* text-align: center; */
+    width: 100%;
+    height: 400px;
+    background-position: center 0%;
+    background-size: cover;
 }
 
 .header h1 {
@@ -92,6 +95,36 @@
     background-color: #aaa;
     width: 100%;
     padding: 20px;
+}
+
+.movieTitle {
+    position: relative;
+}
+
+.movieDetailPoster {
+    position: absolute;
+    top: -120px;
+    width: auto;
+    height: auto;
+    border: white;
+    border-style: solid;
+}
+
+.movieDetailPoster>img {
+    width: 200px;
+}
+
+.movieDetailEtc {
+    position: absolute;
+    bottom: -180px;
+    left: 220px;
+}
+
+.movieDetailInfo {
+    border: black;
+    border-style: solid;
+    padding: 14px;
+    margin-top: 200px;
 }
 
 .card {

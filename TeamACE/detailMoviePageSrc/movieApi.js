@@ -45,7 +45,7 @@ export async function findMovieByGenreId(genres_id) {
 //메인페이지에서 전달한 movie_id를 통해 메인=>상세페이지로 넘어갈때의 영화정보 GET
 export async function findMovieDetailById(movie_id) {
     let movieInfo;
-    await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=ko`, options)
+    await fetch(`https://api.themoviedb.org/3/movie/${movie_id}?language=ko`, options)
         .then(response => response.json())
         .then(response => {
             movieInfo = response;
