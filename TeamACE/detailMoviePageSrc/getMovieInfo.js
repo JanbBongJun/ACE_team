@@ -1,4 +1,4 @@
-import { recommendMovieById } from "./movieApi.js";
+import { recommendMovieById, findMovieDetailById } from "./movieApi.js";
 export let movieNameInput = "";
 let getMovieId;
 
@@ -68,4 +68,46 @@ function setRecommendMovieHtml(id, posterPath, title, voteAverage) {
   </div>
   `;
   return recommendMovieHtml;
+}
+
+export async function showMovieDetailByMovieId(movieId) {
+  let detailMovies = await findMovieDetailById(movieId)
+  console.log(detailMovies)
+
+  // 영화 배경 이미지
+  const movieDetailBackImg = document.getElementById('header')
+  movieDetailBackImg.style.backgroundImage = `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://image.tmdb.org/t/p/original/${detailMovies.backdrop_path})`
+
+  // 영화 포스터, 영화 타이틀
+  const movieDetailTitle = document.getElementById('movieTitle')
+  let countryName = productionCountries(detailMovies.production_countries)
+  movieDetailTitle.innerHTML = `
+      <div class="movieDetailPoster" style="height:200px;"><img src='https://image.tmdb.org/t/p/w300/${detailMovies.poster_path}'></div>
+      <div class="movieDetailEtc">
+          <h2>${detailMovies.title}</h2>
+          <p>${detailMovies.original_title}</p>
+          <p>${detailMovies.release_date}</p>
+          <p>평점 : ${detailMovies.vote_average}</p>
+      </div>
+      `
+
+  // 영화 기본 정보
+  const movieDetailInfo = document.getElementById('movielInfo')
+  movieDetailInfo.innerHTML = `
+      <div>
+          <h2>기본 정보</h2>
+          <p>${detailMovies.title}</p>
+          <p>${detailMovies.runtime}분${countryName}</p>
+          <p>${detailMovies.overview}</p
+      </div>
+  `
+}
+
+// 영화 정보 중 제작국가
+function productionCountries(countries) {
+  let name = ''
+  for (let countryIndex of countries) {
+    name += ' · ' + countryIndex.name;
+  }
+  return name;
 }
