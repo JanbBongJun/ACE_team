@@ -118,6 +118,11 @@ export const makeComment = () => {
   let commentStorage;
   let personalCommentStorage = {};
   const comment = document.getElementById("commentInput").value;
+  if(comment.length>31){
+    window.alert('30글자 이내로 작성해주세요')
+    document.getElementById("commentModal").style.display = "none";
+    return;
+  }
   if (localStorage.getItem(movie_id)) {
     commentStorage = JSON.parse(localStorage[movie_id]);
     console.log(commentStorage);
