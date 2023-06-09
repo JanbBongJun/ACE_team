@@ -39,6 +39,11 @@ window.onload = async () => {
 
 const searchFunction = async() => {
   const searchQuery = searchInput.value;
+  const regex=/^[ㄱ-ㅎ가-힣a-zA-Z0-9]+$/;
+  if(!searchQuery.match(regex)){
+    window.alert('한글영문숫자만 입력가능해요!')
+    return;
+  }
   if (searchQuery.trim() !== "") {
     searchKeyword = searchQuery;
     apiInfo = "keyword";

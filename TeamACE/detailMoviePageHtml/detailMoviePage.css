@@ -333,6 +333,7 @@
   width: 400px;
   height: 300px;
   margin-bottom: 20px;
+  white-space:normal;
 }
 
 .closeOpenCommentModal {
