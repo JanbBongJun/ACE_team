@@ -1,211 +1,481 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .body {
-    font-family: Arial;
-    padding: 10px;
-    background: #f1f1f1;
+  font-family: Arial;
+  /* padding: 10px; */
+  background: #f1f1f1;
 }
 
 .header {
-    padding: 30px;
-    /* text-align: center; */
-    width: 100%;
-    height: 400px;
-    background-position: center 0%;
-    background-size: cover;
+  padding: 30px;
+  /* text-align: center; */
+  width: 103%;
+  height: 400px;
+  background-position: center 0%;
+  background-size: cover;
 }
 
 .header h1 {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .topnav {
-    z-index: 4;
-    position: fixed;
-    overflow: hidden;
-    background-color: #333;
-    width: 100%;
-    top: 0;
-    left: 0;
-    /* display: table; */
+  z-index: 4;
+  position: fixed;
+  overflow: hidden;
+  background-color: #333;
+  width: 100%;
+  top: 0;
+  left: 0;
+  /* display: table; */
+}
+#personalId {
+  pointer-events: none;
+  cursor: default;
+  background-color: #333;
+  color: #f2f2f2;
+  /* box-shadow: 5px 5px 5px 5px gray; */
 }
 
 .topnav img {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
 
-    pointer-events: visible;
-    cursor: pointer;
-    height: 49.5px;
-    text-decoration: none;
+  pointer-events: visible;
+  cursor: pointer;
+  height: 49.5px;
+  text-decoration: none;
 }
 
 .searchModal {
-
-    float: right;
-    display: absolute;
-    /* display: none; */
-    background-color: white;
-    height: 41.5px;
-    width: 270px;
-    margin-top: 4px;
-    border-radius: 20px;
-
+  float: right;
+  display: absolute;
+  /* display: none; */
+  background-color: white;
+  height: 41.5px;
+  width: 270px;
+  margin-top: 4px;
+  border-radius: 20px;
 }
 
-
 .topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    pointer-events: visible;
-    cursor: pointer;
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  pointer-events: visible;
+  cursor: pointer;
 }
 
 .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+  background-color: #ddd;
+  color: black;
 }
 
 .leftcolumn {
-    float: left;
-    width: 75%;
-    padding-left: 12%;
-    padding-right: 5%;
+  float: left;
+  width: 75%;
+  padding-left: 12%;
+  padding-right: 5%;
 }
 
 .rightcolumn {
-    float: left;
-    width: 23%;
-    padding-right: 2%;
-    background-color: #f1f1f1;
-    padding-left: 20px;
-    padding-bottom: 20px;
+  float: left;
+  width: 23%;
+  padding-right: 2%;
+
+  padding-left: 20px;
+  padding-bottom: 20px;
 }
 
 .fakeimg {
-    background-color: #aaa;
-    width: 100%;
-    padding: 20px;
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
 }
 
 .movieTitle {
-    position: relative;
+  position: relative;
 }
 
 .movieDetailPoster {
-    position: absolute;
-    top: -120px;
-    width: auto;
-    height: auto;
-    border: white;
-    border-style: solid;
+  position: absolute;
+  top: -120px;
+  width: auto;
+  height: auto;
+  border: white;
+  border-style: solid;
 }
 
-.movieDetailPoster>img {
-    width: 200px;
+.movieDetailPoster > img {
+  width: 200px;
 }
 
 .movieDetailEtc {
-    position: absolute;
-    bottom: -180px;
-    left: 220px;
+  position: absolute;
+  bottom: -180px;
+  left: 220px;
 }
 
 .movieDetailInfo {
-    border: black;
-    border-style: solid;
-    padding: 14px;
-    margin-top: 200px;
+  border: black;
+  border-style: solid;
+  padding: 14px;
+  margin-top: 200px;
 }
 
 .card {
-    border: black;
-    border-style: solid;
-    padding: 14px;
-    margin-top: 20p x;
+  border: black;
+  border-style: solid;
+  padding: 14px;
+  margin-top: 20p x;
 }
 
 .recommendItem {
-    border-bottom-right-radius: 10px;
-    /* border-bottom-left-radius: 10px; */
-    cursor: pointer;
-    background-color: #c4c4b6;
+  border-bottom-right-radius: 10px;
+  /* border-bottom-left-radius: 10px; */
+  cursor: pointer;
+  background-color: #c4c4b6;
 }
-
 
 .recommendMovie {
-    border: #aaa;
-    border-style: solid;
-    margin-top: 3%;
-    display: grid;
-    grid-template-rows: repeat(auto-fit, minmax(300px, auto));
-    grid-gap: 3rem 4rem;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  border: #aaa;
+  border-style: solid;
+  margin-top: 3%;
+  display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(300px, auto));
+  grid-gap: 3rem 4rem;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
 }
 
-.recommendMovie>div {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* border: 1px solid black; /* 각 요소에 1픽셀 두께의 검은색 외부 테두리를 추가합니다 */
-    /* padding: 10px; 요소의 내부 여백을 설정합니다 */
+.recommendMovie > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid black; /* 각 요소에 1픽셀 두께의 검은색 외부 테두리를 추가합니다 */
+  /* padding: 10px; 요소의 내부 여백을 설정합니다 */
 }
 
-.recommendMovie>div>p {
-    width: 100%;
-    padding-left: 6%;
-    border-style: none;
-    height: 19px;
-    margin: 5px 0px 5px 0px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
+.recommendMovie > div > p {
+  width: 100%;
+  padding-left: 6%;
+  border-style: none;
+  height: 19px;
+  margin: 5px 0px 5px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
-
 
 .recommendImg {
-    margin: 4px;
-    width: 100%;
+  margin: 4px;
+  width: 100%;
 }
 
 .row:after {
-    content: "";
-    display: table;
-    clear: both;
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .footer {
-    padding: 20px;
-    text-align: center;
-    background: #ddd;
-    margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
 }
 
 @media screen and (max-width: 800px) {
-
-    .leftcolumn,
-    .rightcolumn {
-        width: 100%;
-        padding: 0;
-    }
+  .leftcolumn,
+  .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
 }
 
 @media screen and (max-width: 400px) {
-    .topnav a {
-        float: none;
-        width: 100%;
-    }
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ회원가입 cssㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+#main-holder {
+  width: 140%;
+  height: 70%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0px 0px 5px 2px black;
+}
+
+.loginForm {
+  align-self: flex-start;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.login01::placeholder {
+  color: #3a3a3a;
+}
+
+.login01 {
+  border: none;
+  border-bottom: 1px solid #3a3a3a;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  outline: none;
+  padding: 0px 0px 5px 5px;
+}
+
+#joinBtn {
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #3a3a3a;
+  cursor: pointer;
+  outline: none;
+}
+
+.openJoinMembership {
+  z-index: 4;
+  top: 55px;
+  left: 15px;
+  display: none;
+  position: fixed;
+  /* margin-bottom: 20px; */
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ로그인창ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+.loginContainer {
+  z-index: 4;
+  position: fixed;
+  top: 8%;
+  /* background-color: rgb(26, 94, 99); */
+  background-color: rgba(245, 245, 245, 0.767);
+
+  box-sizing: border-box;
+  padding: 0px 20px 20px 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 600px;
+  margin: 0 auto;
+  display: none;
+  box-shadow: 3px 3px 3px 3px gray;
+}
+
+.loginContainer input {
+  width: 200px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.loginContainer button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.loginContainer p {
+  font-size: 30px;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ코멘트 모달창ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+.commentModal {
+  display: none;
+  position: fixed;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.commentModal.show {
+  display: block;
+}
+
+.commentModalBody {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  padding: 40px;
+  text-align: center;
+  border: 3px solid rgb(51, 67, 69);
+  transform: translateX(-50%) translateY(-50%);
+  background-color: rgb(255, 255, 255);
+}
+.commentInput {
+  width: 400px;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.closeOpenCommentModal {
+  padding: 5px 10px;
+  background-color: #525559;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.setComment {
+  position: relative;
+  left: 85%;
+
+  padding: 5px 10px;
+  background-color: #525559;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.commentGridContainer {
+  padding: 5px;
+  /* background-color: #CBC7C0; */
+}
+/* ㅡㅡㅡㅡㅡㅡㅡㅡ코멘트 element ㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+.commentGridElement {
+  overflow-y: scroll;
+  border-style: solid;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1.5rem 2rem;
+  padding: 10px;
+  border-color: #ebebeb;
+  margin-bottom: 20px;
+  border-radius: 9px;
+  max-height: 450px;
+  /* background-color: #CBC7C0; */
+}
+
+.commentGridElement::-webkit-scrollbar-thumb {
+  background-color: #2f3542;
+  border-radius: 10px;
+}
+
+.commentGridElement::-webkit-scrollbar-track {
+  background-color: gray;
+  box-shadow: inset 0px 0px 5px white;
+  border-radius: 10px;
+}
+
+.commentGridElement::-webkit-scrollbar {
+  width: 5px;
+}
+
+.commentElement {
+  height: 200px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 8px;
+}
+.commentElement > h5 {
+  height: 8px;
+  margin-left: 13px;
+}
+
+.comment {
+  overflow-y: scroll;
+  border-style: solid;
+  border-color: black;
+  height: 130px;
+  width: 95%;
+  margin: 0px auto;
+  border-radius: 4px;
+  background: #f0eeee;
+}
+.comment::-webkit-scrollbar-thumb {
+  background-color: #2f3542;
+  border-radius: 10px;
+}
+
+.comment::-webkit-scrollbar-track {
+  background-color: rgb(50, 49, 49);
+  box-shadow: inset 0px 0px 5px white;
+  border-radius: 10px;
+}
+
+.comment::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡwatchlistㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+/* 화면고정 */
+.fixedCard {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: none;
+  border-radius: 16px;
+  background: rgb(126, 134, 160);
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  box-shadow: 0px 5px 15px gray;
+  /* cursor: pointer; */
+  width: 260px;
+  height: fit-content;
+}
+
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+.watchListBtn {
+  margin-top: 7px;
+  height: 25px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 0.8px;
+  border-color: white;
+  cursor: pointer;
+  background: rgb(126, 134, 160);
+
+  color: white;
+  /* margin-left: 130px; */
+}
+.watchlistcontain{
+  overflow-y: scroll;
+  max-height: 150px;
+}
+.watchlistcontain::-webkit-scrollbar-thumb {
+  background-color: #2f3542;
+  border-radius: 10px;
+}
+
+.watchlistcontain::-webkit-scrollbar-track {
+  background-color: rgb(50, 49, 49);
+  box-shadow: inset 0px 0px 5px white;
+  border-radius: 10px;
+}
+
+.watchlistcontain::-webkit-scrollbar {
+  width: 3px;
 }

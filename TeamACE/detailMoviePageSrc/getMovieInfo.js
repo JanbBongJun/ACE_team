@@ -1,4 +1,10 @@
-import { recommendMovieById, findMovieDetailById } from "./movieApi.js";
+import {
+  recommendMovieById,
+  findMovieDetailById,
+  setWatchListById,
+  getWatchList,
+} from "./movieApi.js";
+import { movie_id } from "./detailMoviePage.js";
 export let movieNameInput = "";
 let getMovieId;
 
@@ -71,16 +77,16 @@ function setRecommendMovieHtml(id, posterPath, title, voteAverage) {
 }
 
 export async function showMovieDetailByMovieId(movieId) {
-  let detailMovies = await findMovieDetailById(movieId)
-  console.log(detailMovies)
+  let detailMovies = await findMovieDetailById(movieId);
+  console.log(detailMovies);
 
   // 영화 배경 이미지
-  const movieDetailBackImg = document.getElementById('header')
-  movieDetailBackImg.style.backgroundImage = `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://image.tmdb.org/t/p/original/${detailMovies.backdrop_path})`
+  const movieDetailBackImg = document.getElementById("header");
+  movieDetailBackImg.style.backgroundImage = `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://image.tmdb.org/t/p/original/${detailMovies.backdrop_path})`;
 
   // 영화 포스터, 영화 타이틀
-  const movieDetailTitle = document.getElementById('movieTitle')
-  let countryName = productionCountries(detailMovies.production_countries)
+  const movieDetailTitle = document.getElementById("movieTitle");
+  let countryName = productionCountries(detailMovies.production_countries);
   movieDetailTitle.innerHTML = `
       <div class="movieDetailPoster" style="height:200px;"><img src='https://image.tmdb.org/t/p/w300/${detailMovies.poster_path}'></div>
       <div class="movieDetailEtc">
@@ -89,10 +95,10 @@ export async function showMovieDetailByMovieId(movieId) {
           <p>${detailMovies.release_date}</p>
           <p>평점 : ${detailMovies.vote_average}</p>
       </div>
-      `
+      `;
 
   // 영화 기본 정보
-  const movieDetailInfo = document.getElementById('movielInfo')
+  const movieDetailInfo = document.getElementById("movielInfo");
   movieDetailInfo.innerHTML = `
       <div>
           <h2>기본 정보</h2>
@@ -100,14 +106,36 @@ export async function showMovieDetailByMovieId(movieId) {
           <p>${detailMovies.runtime}분${countryName}</p>
           <p>${detailMovies.overview}</p
       </div>
-  `
+  `;
 }
 
 // 영화 정보 중 제작국가
 function productionCountries(countries) {
-  let name = ''
+  let name = "";
   for (let countryIndex of countries) {
-    name += ' · ' + countryIndex.name;
+    name += " · " + countryIndex.name;
   }
   return name;
 }
+
+//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡwatchlistㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+export const watchListGet = async () => {
+  let watchListElement;
+  let watchListText = document.getElementById("listContainer");
+  watchListElement = await getWatchList(); //동기화
+  let watchListHtml = "";
+  for (let element of watchListElement) {
+    console.log(element.title);
+    watchListHtml += `<p class="watchListInfo">${element.title}</p>`;
+  }
+  console.log(watchListHtml)
+  watchListText.innerHTML = watchListHtml;
+};
+
+const watchListSet = (movie_id) => {
+  setWatchListById(movie_id);
+};
+export const setWatchList = async () => {
+  watchListSet(movie_id);
+  await watchListGet();
+};
