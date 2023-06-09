@@ -73,5 +73,7 @@ genreButton.forEach((element) => {
     apiInfo = "genre";
     searchKeyword = null;
     loadPage(all_content_container, apiInfo, null, genre_ids, 1);
+    btnSet(btnMake,1)
+
   });
 });

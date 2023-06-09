@@ -92,5 +92,3 @@ export function setUpNextBtn(){
 export function setUpPrevBtn(){
     clicked_prev_btn(btnMake,all_content_container)
 }
-
-

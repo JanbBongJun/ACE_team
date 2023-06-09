@@ -77,3 +77,52 @@ export async function recommendMovieById(movie_id) { //매개변수로 입력한
     return movieInfo;
 }
 
+///////////////////////////watchlist///////////////////////////////////////////////////////////
+
+
+// const options = {
+//     method: 'POST',
+//     headers: {
+//       'Accept': 'application/json',
+//       'Content-Type': 'application/json',
+//       'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0NWYyZGZlMzc0NWZlYWU4MzY4ZDRhMjNkYzI4NDdiZSIsInN1YiI6IjY0NzA4ODdjNzI2ZmIxMDBhOGIyMmZmMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Vs13EVcaBz_bPjqdcVihiMrzB8QawtsgIWKEeBioIkI'
+//     },
+//     body: JSON.stringify({ media_type: 'movie', media_id: 101, watchlist: true })
+//   };
+
+export const setWatchListById = async (movie_id) => {
+    const setWatchListOptions = {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0NWYyZGZlMzc0NWZlYWU4MzY4ZDRhMjNkYzI4NDdiZSIsInN1YiI6IjY0NzA4ODdjNzI2ZmIxMDBhOGIyMmZmMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Vs13EVcaBz_bPjqdcVihiMrzB8QawtsgIWKEeBioIkI",
+      },
+      body: JSON.stringify({
+        media_type: "movie",
+        media_id: `${movie_id}`,
+        watchlist: true,
+      }),
+    };
+    
+    await fetch("https://api.themoviedb.org/3/account/19670076/watchlist", setWatchListOptions)
+      .then((response) => response.json())
+      .then((response) => console.log(response))
+      .catch((err) => console.error(err));
+  };
+  
+  //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡwatchListㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+export const getWatchList= async ()=>{
+    let returnWatchList;
+    await fetch('https://api.themoviedb.org/3/account/19670076/watchlist/movies?language=ko&page=1&sort_by=created_at.asc', options)
+    .then(response => response.json())
+    .then(async response => {
+        returnWatchList = response.results
+    })
+    .catch(err => console.error(err));
+    // console.log(returnWatchList) ok
+    return returnWatchList;
+}
+

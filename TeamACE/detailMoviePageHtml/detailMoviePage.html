@@ -11,27 +11,59 @@
     <script type="module" src="../detailMoviePageSrc/getMovieInfo.js" defer></script>
     <script type="module" src="../detailMoviePageSrc/detailMoviePage.js" defer></script>
     <script type="module" src="../detailMoviePageSrc/movieApi.js" defer></script>
+    <script type="module" src="../detailMoviePageSrc/loginComment.js" defer></script>
     <script src="../detailMoviePageSrc/outSideModule.js" defer></script>
 
 </head>
 
 <div class="topnav">
     <img id="homeButton" class="homeButton" src="mainLogo.png">
-    <a class="logIn">로그인</a>
-    <a class="logOut">로그아웃</a>
-    <a class="joinMembership">회원가입</a>
+    <a class="logIn" id="logIn" class="z">로그인</a>
+    <a class="joinMembership" id="joinMembership" class="z">회원가입</a>
+    <a id="personalId"></a>
     <img id="searchIcon" src="searchIcon.png" style="float: right;">
     <div class="logInModal"></div>
     <div class="logOutModal"></div>
     <div class="joinInMembershipModal"></div>
     <input id="searchModal" class="searchModal"></input>
-
 </div>
 
 <div id="header" class="header">
     <!-- <h1>영화 이미지</h1> -->
 </div>
 
+<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ회원가입창ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+<div id="openJoinMembership" class="openJoinMembership">
+    <div id="main-holder">
+        <h1 id="login-header">회원가입</h1>
+        <div id="loginForm" class="loginForm">
+            <input type="text" name="username" id="loginId" class="login01" placeholder="ID">
+            <input type="password" name="password" id="loginPw" class="login01" placeholder="Password">
+            <input type="submit" value="회원가입" id="joinBtn">
+        </div>
+    </div>
+</div>
+<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ로그인창ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 할것 display none으로, css 보기좋게-->
+<div class="loginContainer" id="loginContainer">
+    <P>로그인창</P>
+    ID:<br>
+    <input id="inputID" placeholder="아이디를 입력해주세요."><br>
+    PW:<br>
+    <input id="inputPw" placeholder="비밀번호를 입력해주세요"><br>
+    <button id="loginBtn">로그인</button>
+    <button id="alertClose">닫기</button>
+</div>
+<!-- 코멘트 모달창 -->
+<div id="commentModal" class="commentModal">
+    <div class="commentModalBody">
+        <h1>코멘트를 달아주세요</h1>
+        <input class="commentInput" id="commentInput">
+
+        <button id="writeComment" class="closeOpenCommentModal">글쓰기</button>
+        <button id="closeCommentModal" class="closeOpenCommentModal">닫기</button>
+    </div>
+</div>
+</div>
 
 <div class="row">
     <div class="leftcolumn">
@@ -48,12 +80,25 @@
             <p>내용</p>
             <p>내용</p> -->
         </div>
-        <div class="card">
+        <div class="card" class="commentGridContainer">
             <h2>코멘트</h2>
-            <h5>기본정보</h5>
-            <p>내용</p>
-            <p>내용
-            </p>
+            <div id="commentGridElement" class="commentGridElement">
+                <p>코멘트가 없습니다</p>
+                <!-- <div class="commentElement">
+                    <h5 id="for in 으로 Id입력받기"class="personalCommentId">id</h5>
+                    <p class="comment">내용</p>
+                </div>
+                <div class="commentElement">
+                    <h5 id="for in 으로 Id입력받기"class="personalCommentId">id</h5>
+                    <p class="comment">내용</p>
+                </div>
+                <div class="commentElement">
+                    <h5 id="for in 으로 Id입력받기"class="personalCommentId">id</h5>
+                    <p class="comment">내용</p>
+                </div> -->
+            </div>
+
+            <button id="setComment" class="setComment">코멘트추가</button>
         </div>
         <div class="card">
             <h2>비슷한 작품</h2>
@@ -68,30 +113,25 @@
 
         </div>
     </div>
-    <div class="rightcolumn">
-        <div class="card">
-            <h2>About Me</h2>
-            <div class="fakeimg" style="height:100px;">Image</div>
-            <p>내용</p>
-        </div>
-        <div class="card">
-            <h3>Popular Post</h3>
-            <div class="fakeimg">
-                <p>Image</p>
+<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡwatchlistㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+    <div class="rightcolumn" class="fixedCardContainer">
+        <div class="fixedCard">
+            <h2>Watch List</h2>
+            <div class="watchlistcontain">
+                <div id='listContainer'class="fakeimg" class="listScroll"style="height:fit-content;">
+                </div>
             </div>
-            <div class="fakeimg">
-                <p>Image</p>
-            </div>
-            <div class="fakeimg">
-                <p>Image</p>
-            </div>
+
+            <button id='watchListBtn' class='watchListBtn'>워치리스트추가</button>
         </div>
-        <div class="card">
-            <h3>Follow Me</h3>
-            <p>내용</p>
-        </div>
+
     </div>
+
+
 </div>
+<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡwatchlistㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+
+
 
 <div class="footer">
     <h2>Footer</h2>
