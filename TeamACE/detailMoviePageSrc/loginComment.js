@@ -155,7 +155,6 @@ export const fillCommentContainer = () => {
   if ((commentStorage = localStorage.getItem(movie_id))) {
     let commentStorageObject = JSON.parse(commentStorage);
     let commentHtml = "";
-    let commentAllHtml = "";
     for (let key in commentStorageObject) {
       console.log(commentStorageObject);
       for (let innerKey in commentStorageObject[key]) {

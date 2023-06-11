@@ -64,7 +64,6 @@ export async function setRecommendedMovieByMovieId(movieId) {
 
 function setRecommendMovieHtml(id, posterPath, title, voteAverage) {
   //추천영화목록을 만들기 위한 함수
-  let reCommendMovieItems;
   const recommendMovieHtml = `
   <div id="${id}" class="recommendItem" class=${title} onclick="clickedRecommendMovie(${id})">
       <img class="recommendImg" src="https://image.tmdb.org/t/p/w400${posterPath}">
