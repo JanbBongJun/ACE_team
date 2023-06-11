@@ -45,10 +45,10 @@ export function btnSet(btnMake, page_first_index) {
       page_index
     );
   } else {
-    btnMake.forEach((element) => {
-      element.value = element.value-(-5);
-      element.innerText = element.value;
-    });
+    // btnMake.forEach((element) => {
+    //   element.value = element.value-(-5);
+    //   element.innerText = element.value;
+    // });
     btnSet(btnMake, page_index);
     loadPage(
       all_content_container,
@@ -72,10 +72,10 @@ export function btnSet(btnMake, page_first_index) {
       page_index
     );
   } else {
-    await btnMake.forEach((element) => {
-      element.value = element.value - 5;
-      element.innerText = element.value;
-    });
+    // await btnMake.forEach((element) => {
+    //   element.value = element.value - 5;
+    //   element.innerText = element.value;
+    // });
     btnSet(btnMake, page_index-4);
     loadPage(
       all_content_container,
